@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service UserService {
+    rpc List (Empy) returns (UserListResponse) {}
+    rpc Mark (UserId) returns (User) {}
+}
+
+
+message Empy {} 
+
+
+message UserId {
+    int32 id = 1; 
+}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+}
+
+
+
+message UserListResponse {
+    repeated User user = 1;
+}
+

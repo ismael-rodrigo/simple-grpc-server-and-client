@@ -22,7 +22,11 @@ server.addService(userProto.UserService.service , {
             callback(null,user)
         }
         else {
-            callback(null)
+            callback({
+                code: 400,
+                message: "invalid input",
+                status: grpc.status.INTERNAL
+              })
         }
         
     }
